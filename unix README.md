@@ -2,7 +2,7 @@
 
 ### **Programmer Name: Aruna Priya Cheekatla**
 
-### **Language of the script: Unix**
+Language of the script: Unix
 
 Date: 09/14/2024
 
