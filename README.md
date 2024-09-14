@@ -15,3 +15,5 @@ Files Needed:
 Requirements: wget (for downloading chromosome 1 assemblies from the UCSC genome browser, I installed wget 1.21.5 version, Gunzip (to unzip all of the downloaded chromosome 1 assemblies), head (for viewing the first 10 lines of each file). 
 
 Steps to execute the script: 
+1. Download the repository to the system. 
+Generated files: Informatics_573 ( all downloaded and unzipped chromosome assemblies are stored) and data_summary.txt (contains a list of files, the first 10 lines of each file, the name of the file, and the total number of lines it contains). 
