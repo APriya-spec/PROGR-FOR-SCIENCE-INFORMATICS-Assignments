@@ -10,8 +10,8 @@ Requirements:
 Download 'chr1_GL383518v1_alt.' file from 'https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/', Install Python. 
 
 Steps to execute the script:
-Download A2.py into your local system.
-Opened the terminal window.
-Navigate to the directory where the file is saved using the 'cd' command.
+Download A2.py into your local system.  
+Opened the terminal window.  
+Navigate to the directory where the file is saved using the 'cd' command.  
 To run the file use python filename.py
 
