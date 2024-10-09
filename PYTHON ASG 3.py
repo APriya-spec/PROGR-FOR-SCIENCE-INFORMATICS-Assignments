@@ -119,5 +119,6 @@ sns.clustermap(gene_expression_data_cluster, cmap="viridis", figsize=(10, 8))
 plt.tight_layout()
 plt.show()
 
-#g) 
+#g) Some chromosomes exhibit a higher concentration of differentially expressed genes (DEGs), according to the histogram of DEG per chromosome. This suggests that these chromosomes may be more responsible for the phenotypic variations between the tumor and normal samples. The bar chart indicates a distinct pattern of overexpression in tumour samples, suggesting that these genes may play a part in the development of tumors. The heatmap and clustermap provides information on the patterns of gene expression in different samples; different clusters might represent set of genes that exhibit comparable expression patterns.
 
+ 
