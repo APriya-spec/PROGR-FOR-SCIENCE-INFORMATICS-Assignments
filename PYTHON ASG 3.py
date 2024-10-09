@@ -1,8 +1,8 @@
 #Question 1 
 #a) 
-#Load the data in “Gene_Expression_Data.xlsx”, “Gene_Information.csv”, and “Sample_Information.tsv” into Python
 import pandas as pd
 import numpy as np
+#Load the data in “Gene_Expression_Data.xlsx”, “Gene_Information.csv”, and “Sample_Information.tsv” into Python
 # Load Excel file
 gene_expression_data = pd.read_excel('/content/Gene_Expression_Data.xlsx')  
  # Load CSV file
@@ -59,4 +59,65 @@ fold_change_genes['Higher_Expression'] = np.where(fold_change_genes['Fold_Change
 fold_change_genes = pd.merge(fold_change_genes, gene_info[['Probe_ID', 'Chromosome']], on='Probe_ID', how='left')
 fold_change_genes
 
+#QUESTION 2
+#a) Perform exploratory data analysis on the genes from part 1g
+print(fold_change_genes.head())  
+print(fold_change_genes.describe())  
+print(fold_change_genes.info())  
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#b) Count differentially expressed genes (DEGs) by chromosome
+differentially_expressed_genes = fold_change_genes['Chromosome'].value_counts()
+
+#Created a histogram showing the distribution of the number of differentially expressed genes (DEGs) by chromosome
+plt.figure(figsize=(12, 6))
+sns.barplot(x = differentially_expressed_genes.index, y = differentially_expressed_genes.values, palette='viridis')
+plt.title('Distribution of the number of differentially expressed genes (DEGs) by chromosome')
+plt.xlabel('Chromosome')
+plt.ylabel('No. of DEGs')
+plt.xticks(rotation=45)
+plt.show()
+
+#c) Created a histogram showing the distribution of DEGs by chromosome segregated by sample type (Normal or Tumor)
+NormalGenes = fold_change_genes[fold_change_genes['Higher_Expression'] == 'Normal']
+TumorGenes = fold_change_genes[fold_change_genes['Higher_Expression'] == 'Tumor']
+plt.figure(figsize=(12, 6))
+plt.hist(TumorGenes['Chromosome'].astype(str), color='red', label='Tumor', bins=20, alpha=0.7)
+plt.hist(NormalGenes['Chromosome'].astype(str), color='green', label='Normal', bins=20, alpha=0.5)
+plt.title('Distribution of DEGs by chromosome segregated by sample type (Normal or Tumor)')
+plt.xlabel('Chromosome')
+plt.ylabel('Frequency')
+plt.xticks(rotation=90)
+plt.legend(title='Higher Expression')
+plt.show()
+
+#d) Created a bar chart showing the percentages of the DEGs that are upregulated (higher) in Tumor samples and down regulated (lower) in Tumor samples
+upregulated = (fold_change_genes[fold_change_genes['Higher_Expression'] == 'Tumor'].shape[0] / fold_change_genes.shape[0]) * 100
+downregulated = 100 - upregulated
+plt.bar(['Upregulated', 'Downregulated'], [upregulated, downregulated], color=['red', 'yellow'])
+plt.xlabel('Gene Expression')
+plt.ylabel('Percentage')
+plt.title('Percentages of the DEGs that are upregulated (higher) in Tumor samples and down regulated (lower) in Tumor samples')
+plt.show()
+
+#e) Using the raw data from part 1b heatmap visualizing gene expression by sample is created
+plt.figure(figsize=(12, 8))
+sns.heatmap(gene_expression_data.set_index('Probe_ID'), cmap='viridis')
+plt.title('Heatmap visualizing gene expression by sample')
+plt.show()
+
+
+!pip install fastcluster
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+#f) Using the same data from the previous part a clustermap visualizing gene expression by sample is created
+gene_expression_data_cluster = gene_expression_data.drop("Probe_ID", axis=1)
+sns.clustermap(gene_expression_data_cluster, cmap="viridis", figsize=(10, 8))
+plt.tight_layout()
+plt.show()
+
+#g) 
 
