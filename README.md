@@ -1,2 +1,0 @@
-# PROGR-FOR-SCIENCE-INFORMATICS-Assignments
-
