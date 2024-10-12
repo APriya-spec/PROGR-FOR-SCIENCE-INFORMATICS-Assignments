@@ -13,7 +13,7 @@ Python libraries: Pandas, numpy, matplotlib, seaborn, fastcluster.
 ### **FILES NEEDED:** 
 Gene_Expression_Data.xlsx, Sample_Information.tsv, Gene_Information.csv
 
-### ***STEPS FOR EXECUTING THE SCRIPT:***
+### **STEPS FOR EXECUTING THE SCRIPT:**
 1. Download all the needed files and upload them in Python directory.
 2. Run the Python script.
 3. Script will load the data files, which are needed to be processed. Visualizations like heat maps, histograms, clustermaps, bar graphs are generated. 
