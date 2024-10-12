@@ -2,7 +2,7 @@
 
 ### **SCRIPT LANGUAGE: Python** 
 
-### **DATE: 10/10/2024**
+### **DATE: 10/12/2024**
 
 ### **DESCRIPTION:**
 This Python application examines gene expression information from both normal and tumour samples. It computes fold changes for each gene between the tumour and normal groups after processing data from several sources (Excel, CSV, and TSV). It then filters for important genes whose fold changes are more than 5. To visualise gene expression and spot trends, exploratory data analysis (EDA) is also included in the analysis.
