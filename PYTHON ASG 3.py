@@ -61,12 +61,19 @@ fold_change_genes
 
 #QUESTION 2
 #a) Perform exploratory data analysis on the genes from part 1g
-print(fold_change_genes.head())  
-print(fold_change_genes.describe())  
-print(fold_change_genes.info())  
-
-import matplotlib.pyplot as plt
+#2a)
+print(fold_change_genes['Fold_Change'].describe())
+print(fold_change_genes['Higher_Expression'].value_counts())
 import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.histplot(fold_change_genes['Fold_Change'], bins=30)
+plt.title('Distribution of Fold Change')
+plt.xlabel('Fold Change')
+plt.ylabel('Frequency')
+plt.show()
+
+
 
 #b) Count differentially expressed genes (DEGs) by chromosome
 differentially_expressed_genes = fold_change_genes['Chromosome'].value_counts()
