@@ -11,6 +11,7 @@ Using techniques to extract the DNA sequence from the file, retrieve certain nuc
 
 ### **Requirements:** 
 •	Download the chr1_GL383518v1_alt.fa file from UCSC Genome Browser.
+
 •	Install R on your system.
 
 
