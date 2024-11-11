@@ -9,6 +9,7 @@ dna<- paste(dna, collapse="")
 cat("The 10th letter of the sequence is:", substr(dna, 10, 10), "\n")
 cat("The 758th letter of the sequence is:", substr(dna, 758, 758), "\n")
 
+
 # Q2. 
 # Define a function for complementary sequence
 complement <- function(seq_of_dna) {
@@ -31,6 +32,7 @@ reverse_complement <- complement(dna)
 cat("The 79th letter of the reverse complement sequence is:", substr(reverse_complement, 79, 79), "\n")
 cat("The 500th to 800th letters of the reverse complement sequence are:", substr(reverse_complement, 500, 800), "\n")
 
+
 # Q3.
 dna<-toupper(dna)
 # Define a function to count nucleotides per kilobase
@@ -42,7 +44,7 @@ n_count <- function(sequence) {
     substring1<-substr(dna, i, min(i+999, nchar(dna)))
     # Count each time each nucleotide occured
     kb_counts <- sapply(c("A", "C", "G","T"), function(n)
-      {
+    {
       sum(unlist(strsplit(substring1, NULL))==n)
     })
     nuc_counts[[as.character(kilobase)]] <- kb_counts
@@ -53,6 +55,7 @@ n_count <- function(sequence) {
 result <- n_count(dna)
 print(result)
 
+
 # Q4a.
 # Extracting A, T, C, G counts from 1st kb
 bp <- c(
@@ -62,6 +65,7 @@ bp <- c(
   result[["0"]]["G"]
 )
 print(bp)
+
 
 # Q4b.
 # Create a list with nucleotide count for each kb
@@ -78,6 +82,7 @@ for (ll in l1) {
   x <- x + 1
 }
 
+
 #Q4d. 
 # Print sum of each kb
 cat("Sum of each kilobase:\n")
@@ -88,15 +93,8 @@ for (v in result) {
 }
 
 
-# QUESTION 4d
-cat('Sum of each kilobase:\n')
-for (v in result) {
-  sum <- sum(unlist(v))
-  cat(sum, end = ', ')
-}
-
-
 #Q4e. 
-#For every kilobase, the expected amount is 1000 nucleotides.
-#It's true that some lists may have amounts that differ from 1000.
-#The observed results could differ from the expected values because of errors, mutations in the DNA sequence, or differences in the sequencing procedure. This could be because there were not enough base pairs when summation into kbs. Furthermore, sequencing technology limitations, experimental settings, and contamination can all contribute to discrepancies between expected and observed findings.
+#1. Expected sum for each value will be 1000.
+#2. Yes, there are lists whose sums are not equal to the expected value. 
+#3. The number of nucleotides in the DNA sequence is 183439 thus the last list has only 439 nucleotides as the total nucleotides is not divisible by 1000. 
+
